@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Light Again',
+    date: 'December 21st, 2019',
+    firstParagraph: `Hey it's MK.`,
+
+    secondParagraph: `How's Stout?`,
+
+    thirdParagraph: `All this you wish to renounce?`
   }
 ];
 
@@ -114,3 +123,38 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+  const article = document.createElement("div");
+  const titleH2 = document.createElement("h2");
+  const dateP = document.createElement("p");
+  const par1 = document.createElement("p");
+  const par2 = document.createElement("p");
+  const par3 = document.createElement("p");
+  const expandButton = document.createElement("button");
+  
+  article.appendChild(titleH2);
+  article.appendChild(dateP);
+  article.appendChild(par1);
+  article.appendChild(par2);
+  article.appendChild(par3);
+  article.appendChild(expandButton);
+
+  article.classList.add("article");
+  dateP.classList.add("date");
+  expandButton.classList.add("expandButton");
+
+  titleH2.textContent = title;
+  dateP.textContent = date;
+  par1.textContent = firstParagraph;
+  par2.textContent = secondParagraph;
+  par3.textContent = thirdParagraph;
+  expandButton.textContent = "+";
+
+  expandButton.addEventListener("click", (event) => {
+    article.classList.toggle("article-open");
+  });
+  return article;
+}
+
+data.forEach((element) => document.body.appendChild(articleMaker(element)));
