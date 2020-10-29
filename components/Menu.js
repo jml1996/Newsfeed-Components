@@ -31,3 +31,35 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+function menuMaker(items){
+  //Document?
+  const menuDiv = document.createElement("div");
+  let menuUl = document.createElement("ul");
+
+  menuDiv.appendChild(menuUl);
+
+  menuDiv.classList.add("menu");
+
+  items.forEach((item) => {
+    const ulLi = document.createElement("li");
+    ulLi.textContent = item;
+    menuUl.appendChild(ulLi);
+  });
+
+  const domMenuButton = document.querySelector(".menu-button");
+
+  domMenuButton.addEventListener("click", (event) => {
+    menuDiv.classList.toggle("menu--open");
+  });
+  console.log(menuDiv);
+  return menuDiv;
+}
+
+// Spent more time trying to figure out why 
+//        document.header.appendChild(menuMaker(menuItems));
+// was not working than on the menuMaker function itself.
+// All because the header is not a header, but the class name for the div!
+document.querySelector(".header").prepend(menuMaker(menuItems));
+
+

@@ -158,3 +158,21 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 }
 
 data.forEach((element) => document.body.appendChild(articleMaker(element)));
+
+// import x from "./Menu";
+// const domMenuButton = document.querySelector(".menu-button");
+// domMenuButton.addEventListener("click", (event) => {
+//   document.header.appendChild(x);
+// });
+
+
+// article.toggle(perfect(article));
+
+// function perfect(article) {
+//   if (article.querySelector(".article-open") != null) {
+//     const xyz = article.querySelector(".article-open");
+//     xyz.style.height = "auto";
+//   }
+// }
+
+
